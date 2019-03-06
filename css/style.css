@@ -1,5 +1,45 @@
+body {
+    background-color: #99ccff;
+}
+
 #gameWindow {
-    margin: auto;
+    margin: 2em auto;
     width: 50%;
-    border: solid 1px;
+    border: solid 10px;
+    border-color: #bff584;
+    border-radius: 5%;
+    min-height: 500px;
+    background-color: #bff584;
+    box-shadow: 0.5em 0.5em 0.5em #000;
+}
+
+#gameMenu {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Bangers', cursive;
+}
+
+#gameMenu p {
+    margin: 0.75em auto;
+    font-size: 3em;
+}
+
+#gameMenu button {
+    width: 40%;
+    max-width: 80%;
+    margin: 0.5em auto;
+    font-family: 'Bangers', cursive;
+    /* styling */
+    background-color: #f5bb84;
+    font-size: 2.5em;
+    padding: 0.25em;
+    border: solid 5px;
+    border-radius: 25%;
+    /* Animation */
+    transition: width 0.5s ease,
+        background-color 0.5s linear;}
+
+#gameMenu button:hover {
+    width: 42%;
+    background-color: #a2cc74;
 }
