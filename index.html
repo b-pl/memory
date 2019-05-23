@@ -4,23 +4,96 @@
         <title>Concentration Game</title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link href="https://fonts.googleapis.com/css?family=Bangers" rel="stylesheet">
+        <link href="images/favicon.ico" rel="icon" type="image/x-icon" />
+        <script src="http://code.jquery.com/jquery-3.3.1.min.js"
+                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+                crossorigin="anonymous"></script>
     </head>
     <body>
         <!-- Main game window -->
         <div id="gameWindow">
 
+            <div id="flip">
+                
+                <div id="gameHeader">
+                    <div class="headerColumn" id="leftColumn">
+                        <span id="headerPlayerName"></span>
+                        <span class="headerButton" id="pauseButton" onclick="pauseGame()">PAUSE</span>
+                        <span class="headerButton" id="menuButton" onclick="goToMenu()">Menu</span>
+                    </div>
+
+                    <div class="headerColumn" id="centerColumn">
+                        <span id="headerTimer">00:00</span>
+                    </div>
+
+                    <div class="headerColumn" id="rightColumn">
+                        <span id="headerDifficulty"></span>
+                    </div>
+                </div>
+
+                <div id="gameBoard">
+                    <!-- Here goes GRID -->
+                </div>
+            </div>
+
             <div id="gameMenu">
-                <!-- "Player" is a player name, and it should change -->
-                <p id="welcomeMsg">Welcome, Player!</p>
+                <p id="welcomeMsg"></p>
 
                 <button class="gameMenuButton" id="newGameButton"
-                    value="New Game">New Game</button>
+                    value="New Game" onClick="startGame()">New Game</button>
                 <button class="gameMenuButton" id="highScoresButton"
-                    value="High-Scores">High-Scores</button>
-                <button class="gameMenuButton" id="changePleyerButton"
-                    value="Change Player">Change Player</button>
+                    value="High-Scores" onClick="goToScores()">High-Scores</button>
+                <button type="button" class="gameMenuButton" id="changePlayerButton"
+                    value="Change Player" onClick="openModal()">Change Player</button>
+            </div>
+
+
+            <div id="changeNameContainer">
+                <div id="changeName">
+                    <p>Type your name</p>
+                    <input type="text" id="newPlayerName" placeholder="Type your name here..."
+                        maxlength="15" onclick="oneClickSelect()" onkeypress="keyboardChangePlayerName()">
+                    <div id="buttonContainer">
+                        <br><button type="button" id="cancelButton">Cancel</button>
+                        <button type="button" onclick="changePlayerName()">Change</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="highScoresContainer">
+                <button type="button" class="goBackButton" id="closeScores" onclick="goToMenu()">X</button>
+                <p>TOP <span id="bigger">10!</span></p>
+                <div id="highScores">
+                    <ol id="highScoresList">
+                        
+                    </ol>
+                </div>
+            </div>
+
+            <!-- TO DO
+            - goBack() and goToMenu() should be 1 function
+            - startGame() and goToScores() probably can be 1 function as well -->
+            <div id="gameContainer">
+
+                <div id="chooseDifficulty">
+                    <span><button type="button" class="goBackButton"
+                            id="closeChooseDifficulty" onclick="goBack()">X</button></span>
+                    <div id="chooseDifficultyButtons">
+                        <!-- EASY is 4x4 -->
+                        <button class="gameMenuButton diffButton" id="easy" onclick="playGame()">EASY</button>
+                        <br><button class="gameMenuButton diffButton" id="medium" onclick="playGame()">MEDIUM</button>
+                        <br><button class="gameMenuButton diffButton" id="hard" onclick="playGame()">HARD</button>
+                    </div>
+                </div>
+
             </div>
 
         </div>
+
+        <script src="scripts/script.js"></script>
+        <!-- This is just a temp, scores will save after finishing game -->
+        <script src="scripts/setLocalStorage.js"></script>
+        <script src="scripts/showScores.js"></script>
+        <script src="scripts/playGame.js"></script>
     </body>
 </html>

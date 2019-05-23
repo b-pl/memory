@@ -1,3 +1,7 @@
+:root {
+    --main-color: #bff584;
+}
+
 body {
     background-color: #99ccff;
 }
@@ -6,17 +10,17 @@ body {
     margin: 2em auto;
     width: 50%;
     border: solid 10px;
-    border-color: #bff584;
+    border-color: var(--main-color);
     border-radius: 5%;
     min-height: 500px;
-    background-color: #bff584;
+    background-color: var(--main-color);
     box-shadow: 0.5em 0.5em 0.5em #000;
+    font-family: 'Bangers', cursive;
 }
 
 #gameMenu {
     display: flex;
     flex-direction: column;
-    font-family: 'Bangers', cursive;
 }
 
 #gameMenu p {
@@ -24,11 +28,12 @@ body {
     font-size: 3em;
 }
 
-#gameMenu button {
+.gameMenuButton {
     width: 40%;
     max-width: 80%;
     margin: 0.5em auto;
-    font-family: 'Bangers', cursive;
+    /* font-family: 'Bangers', cursive; */
+    font-family: inherit;
     /* styling */
     background-color: #f5bb84;
     font-size: 2.5em;
@@ -37,9 +42,204 @@ body {
     border-radius: 25%;
     /* Animation */
     transition: width 0.5s ease,
-        background-color 0.5s linear;}
+        background-color 0.5s linear;
+}
 
-#gameMenu button:hover {
+.gameMenuButton:hover {
     width: 42%;
     background-color: #a2cc74;
+}
+
+#changeNameContainer {
+    display: none;
+    position: fixed;
+    top: 2em;
+    left: auto;
+    z-index: 1;
+    margin: auto;
+    width: 50%;
+    min-height: 500px;
+}
+
+#changeName{
+    border: solid 1px;
+    border-radius: 25px;
+    border: 1px solid #000;
+    padding: 2em;
+    background-color: var(--main-color);
+    box-shadow: 0.5em 0.5em 0.5em #000;
+    width: 50%;
+    margin: 20% auto;
+    min-height: 2em;
+}
+
+#changeName p {
+    font-size: 3em;
+    margin: 0.2em auto;
+    text-align: center;
+}
+
+#changeName input[type=text] {
+    display: block;
+    margin: auto;
+    height: 1.5em;
+    font-size: 1.25em;
+    background-color: var(--main-color);
+    border: solid 0px #fff;
+    text-align: center;
+    font-style: italic;
+}
+
+#changeName input[type=text]::placeholder {
+    text-align: center;
+    font-style: italic;
+}
+
+#changeName input[type=text]:focus {
+    text-align: center;
+    font-style: italic;
+    border: solid 0px;
+    outline: none;
+}
+
+/* Style this later */
+#changeName button {
+    margin: 1em 0.2em 0em 0.2em;
+}
+
+/* To center buttons */
+#buttonContainer {
+    /* width: 50%; */
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+#highScoresContainer {
+    display: none;
+}
+
+.goBackButton {
+    float: right;
+    font-family: inherit;
+    font-size: 2.5em;
+    background: transparent;
+    border: solid 0px;
+    color: #f00;
+}
+
+#closeScores {
+    margin: -0.5em 0.2em;
+}
+
+#highScoresContainer button:hover {
+    font-weight: bold;
+}
+
+#highScoresContainer p {
+    text-align: center;
+    font-size: 5em;
+    margin: 0.3em;
+}
+
+#bigger {
+    color: #fa5500;
+    font-size: 1.2em;
+}
+
+#gameContainer {
+    display: none;
+}
+
+#chooseDifficulty {
+    min-height: 500px;
+    position: relative;
+}
+
+#closeChooseDifficulty {
+    position: absolute;
+    right: 0;
+}
+
+#chooseDifficultyButtons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#easy {
+    margin-top: 2em;
+}
+
+#hard {
+    margin-bottom: 2em;
+}
+
+.flip {
+    perspective: 1000px;
+}
+
+#gameHeader {
+    display: none;
+    justify-content: space-between;
+}
+
+#leftColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+#leftColumn, #rightColumn {
+    visibility: hidden;
+}
+
+#headerTimer {
+    font-size: 2em;
+}
+
+#gameBoard {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* position: relative; */
+}
+
+/* #gameBoard div {
+    width: 24%;
+    min-height: 120px;
+    border: solid 1px;
+    margin-top: 5px;
+} */
+
+.card {
+    display: flex;
+    /* background-image: url('../images/reverse_rec.png'); */
+    /* background-size: 100%; */
+    border: solid 10px;
+    border-color: var(--main-color);
+    border-radius: 7.5%;
+    position: relative;
+    width: 24%;
+    min-height: 120px;
+    border: solid 1px;
+    margin-top: 5px;
+    z-index: 0;
+}
+
+
+.cardP {
+    margin: auto;
+    font-size: 4em;
+    visibility: hidden;
+    z-index: 1;
+}
+
+.cardFront {
+    /* display: block; */
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    min-height: 120px;
+    background-color: red;
 }
