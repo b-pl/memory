@@ -200,10 +200,15 @@ function endGame() {
     clearTimeout(t);
     let currentTime = minutes + '.' + seconds;
     localStorage.setItem(playerName, currentTime);
-    document.querySelector('#gameMenu').style.display = 'flex';
-    document.querySelector('#gameBoard').style.display = 'none';
-    // localStorage.setItem(name, time)
-    // time should be converted to "1.23" format
+    document.querySelector('#gameMenu').style.display = 'flex'; // show main menu
+    document.querySelector('#gameBoard').innerHTML = ""; // clear space for new GRID
+    document.querySelector('#gameHeader').style.display = "none"; // hide timer
+
+    //reset timer
+    seconds = 0;
+    minutes = 0;
+    timerOn = false;
+    document.querySelector('headerTimer').innerHTML = "10:00";
 }
 
 function setHeader() {
