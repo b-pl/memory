@@ -155,9 +155,9 @@ var counter = 0;
 function hideBoth() {
     $('.cardFront').css( {'pointer-events': 'auto'} );
     cid1.style.visibility = "hidden";
-    fid1.style.visibility = "visible";
+    $( fid1 ).toggle( "puff" );
     cid2.style.visibility = "hidden";
-    fid2.style.visibility = "visible";
+    $( fid2 ).toggle( "puff" );
 }
 
 function cardPicked(){
@@ -169,7 +169,7 @@ function cardPicked(){
         let whichCardP = whichCard.replace('F', 'P');
         c(whichCardP);
 
-        document.querySelector('#' + whichCard).style.visibility = "hidden";
+        $( "#" + whichCard ).toggle( "puff" );
         document.querySelector('#' + whichCardP).style.visibility = "visible";
 
         if (counter === 0) {
@@ -188,9 +188,6 @@ function cardPicked(){
                 $('.cardFront').css( {'pointer-events': 'none'} );
                 setTimeout(function() { hideBoth(); }, 1000);      
             } else {
-                // here game should check if all cards are visible
-                // if they're game should stop
-                // execute endGame() HERE
                 points -= 2;
                 if (points === 0) endGame();
                 c(points);
@@ -214,29 +211,3 @@ function setHeader() {
     // document.querySelector('#headerPlayerName').textContent = headerInfo.name;
     // document.querySelector('#headerDifficulty').textContent = headerInfo.difficulty;
 }
-
-// var isPaused = false;
-// function pauseGame(){
-    // switch(isPaused) {
-    //     case false:
-    //         isPaused = true;
-    //         clearTimeout(t);
-    //         $('.cardFront').css( {'pointer-events': 'none'} );
-    //         break;
-    //     case true:
-    //         isPaused: false;
-    //         plus();
-    //         $('.cardFront').css( {'pointer-events': 'auto'} );
-    //         break;
-    //     default:
-    //         break;
-    // }
-    // alert("Not avaible in this version of game.");
-// }
-
-// function goToMenu() {
-//     let GB = document.querySelector('#gameBoard');
-//     let GM = document.querySelector('#gameMenu');
-//     GM.style.display = "flex";
-//     GB.style.display = "none";
-//   }
