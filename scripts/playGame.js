@@ -154,9 +154,9 @@ var counter = 0;
 
 function hideBoth() {
     $('.cardFront').css( {'pointer-events': 'auto'} );
-    cid1.style.visibility = "hidden";
+    // cid1.style.visibility = "hidden";
     $( fid1 ).toggle( "puff" );
-    cid2.style.visibility = "hidden";
+    // cid2.style.visibility = "hidden";
     $( fid2 ).toggle( "puff" );
 }
 
