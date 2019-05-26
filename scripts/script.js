@@ -72,8 +72,10 @@ function goToMenu() {
 function startGame() {
   let GC = document.querySelector('#gameContainer');
   let GM = document.querySelector('#gameMenu');
+  let CD = document.querySelector('#chooseDifficulty');
   GM.style.display = "none";
   GC.style.display = "block";
+  CD.style.display = "block";
 }
 
 function goBack() {
