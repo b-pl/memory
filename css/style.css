@@ -245,3 +245,43 @@ body {
     border-color: #f00;
     border-radius: 7.5%;
 }
+
+#endMsg {
+    width: 35%;
+    min-height: 250px;
+    margin: auto;
+    border: solid 1px;
+    /* border-color: var(--main-color); */
+    border-radius: 2.5%;
+    background-color: var(--main-color);
+    box-shadow: 0.5em 0.5em 0.5em #000;
+    font-family: 'Bangers', cursive;
+    display: flex;
+    flex-direction: column;
+    display: none;
+    position: fixed;
+    top: 25%;
+    left: 33.5%;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#winnerButton {
+    width: 25%;
+    margin-top: 1em;
+    font-family: inherit;
+    background-color: #f5bb84;
+    font-size: 2em;
+    padding: 0.25em;
+    border: solid 5px;
+    border-radius: 25%;
+    transition: width 0.5s ease,
+        background-color: 0.5s linear;
+}
+
+.winnerButton:hover {
+width: 27%;
+background-color: #a2cc74;
+}

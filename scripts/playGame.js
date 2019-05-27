@@ -201,18 +201,22 @@ function endGame() {
     clearTimeout(t);
     let currentTime = minutes + '.' + seconds;
     localStorage.setItem(playerName, currentTime);
-    document.querySelector('#gameMenu').style.display = 'flex'; // show main menu
-    document.querySelector('#gameBoard').innerHTML = ""; // clear space for new GRID
-    document.querySelector('#gameHeader').style.display = "none"; // hide timer
+    document.querySelector('#endMsg').style.display = 'flex';
+    document.querySelector('#endMsgGz').innerHTML = "Congratulations " + playerName + "!";
+    document.querySelector('#timeMsg').innerHTML = "You have memorized all cards in " + currentTime
+    
 
     //reset timer
     seconds = 0;
     minutes = 0;
     timerOn = false;
-    // document.querySelector('headerTimer').innerHTML = "10:00";
+}
 
-    //congratsMODAL
-
+function newMenu() {
+    document.querySelector('#endMsg').style.display = 'none';
+    document.querySelector('#gameMenu').style.display = 'flex'; // show main menu
+    document.querySelector('#gameBoard').innerHTML = ""; // clear space for new GRID
+    document.querySelector('#gameHeader').style.display = "none"; // hide timer
 }
 
 function setHeader() {
