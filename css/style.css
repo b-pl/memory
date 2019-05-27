@@ -122,10 +122,14 @@ body {
 .goBackButton {
     float: right;
     font-family: inherit;
-    font-size: 2.5em;
+    font-size: 2em;
     background: transparent;
     border: solid 0px;
     color: #f00;
+}
+
+.goBackButton:hover {
+    font-weight: bold;
 }
 
 #closeScores {
@@ -184,13 +188,9 @@ body {
     justify-content: space-between;
 }
 
-#leftColumn {
-    display: flex;
-    flex-direction: column;
-}
-
-#leftColumn, #rightColumn {
-    visibility: hidden;
+#headerDifficulty {
+    font-size: 2em;
+    margin: auto;
 }
 
 #headerTimer {
@@ -231,7 +231,7 @@ body {
 .cardP {
     margin: auto;
     font-size: 4em;
-    visibility: hidden;
+    /* visibility: hidden; */
     z-index: 1;
 }
 

@@ -29,7 +29,7 @@ function createGrid(size){
         let cardFID = 'card' + i + 'F';
         secondDiv.setAttribute('id', cardFID);
         secondDiv.setAttribute('onclick', 'cardPicked()');
-        a.appendChild(secondDiv);    
+        a.appendChild(secondDiv);
     }
 }
 
@@ -65,6 +65,7 @@ function playGame() {   // this shouldn't be named playGame
     }
 
     c(headerInfo.difficulty);
+    document.querySelector('#headerDifficulty').innerHTML = headerInfo.difficulty;
     setHeader();
     let size = setSize();
     
@@ -170,7 +171,7 @@ function cardPicked(){
         c(whichCardP);
 
         $( "#" + whichCard ).toggle( "puff" );
-        document.querySelector('#' + whichCardP).style.visibility = "visible";
+        // document.querySelector('#' + whichCardP).style.visibility = "visible";
 
         if (counter === 0) {
             c1 = document.querySelector('#' + whichCardP).innerHTML;
@@ -208,7 +209,10 @@ function endGame() {
     seconds = 0;
     minutes = 0;
     timerOn = false;
-    document.querySelector('headerTimer').innerHTML = "10:00";
+    // document.querySelector('headerTimer').innerHTML = "10:00";
+
+    //congratsMODAL
+
 }
 
 function setHeader() {
