@@ -40,6 +40,7 @@ const headerInfo = {
 
 function playGame() {   // this shouldn't be named playGame
     headerInfo.difficulty = window.event.target.id;
+    document.querySelector('#headerTimer').innerHTML = "00:00";
 
     function setSize(){
         let difficulty = window.event.target.id;
@@ -217,6 +218,11 @@ function endGame() {
 }
 
 function newMenu() {
+    clearTimeout(t);
+    //reset timer
+    seconds = 0;
+    minutes = 0;
+    timerOn = false;
     document.querySelector('#endMsg').style.display = 'none';
     document.querySelector('#gameMenu').style.display = 'flex'; // show main menu
     document.querySelector('#gameBoard').innerHTML = ""; // clear space for new GRID
