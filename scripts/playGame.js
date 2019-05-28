@@ -205,12 +205,15 @@ function cardPicked(){
 function endGame() {
     clearTimeout(t);
     let currentTime = minutes + '.' + seconds;
-    localStorage.setItem(playerName, currentTime);
+    let value = playerName + " " + currentTime;
+    // var playerID = parseInt(localStorage['ID']);
+    localStorage.setItem(x, JSON.stringify(value));
+
+
     document.querySelector('#endMsg').style.display = 'flex';
     document.querySelector('#endMsgGz').innerHTML = "Congratulations " + playerName + "!";
     document.querySelector('#timeMsg').innerHTML = "You have memorized all cards in " + currentTime
     
-
     //reset timer
     seconds = 0;
     minutes = 0;

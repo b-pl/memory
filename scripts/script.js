@@ -1,6 +1,17 @@
 // ~BEGIN **PAGE LOADED INSTRUCTIONS**
 var playerName = "Adolf";
 var emojisSet = "EASY";
+let idNo = 0;
+let x = 0;
+if(localStorage.getItem('ID') === null) {
+  localStorage.setItem('ID', idNo);
+  console.log(x);
+} else {
+  x = parseInt(localStorage['ID']);
+  x++;
+  localStorage['ID'] = x;
+}
+
 
 // Display welcome msg
 document.querySelector('#welcomeMsg').innerHTML = "Welcome, " + playerName + "!";

@@ -3,6 +3,8 @@ var scoresArray = [];
 // This is counter for 'for' loop displaying high-scores
 // var j = 0;
 
+// import playerID  from './playGame.js';
+
 // Putting scores in array and sorting it
 function sortHighScores() {
     // Object constructor
@@ -12,8 +14,14 @@ function sortHighScores() {
     }
 
     // Create new objects (scores)
+    if(scoresArray === null) {
     for (let i = 0; i < localStorage.length; i++) {
-        scoresArray[i] = new Score(localStorage.key(i), localStorage.getItem(localStorage.key(i)));
+        console.log(localStorage.getItem(x));
+        let combined = JSON.parse(localStorage.getItem(x));
+        let disconnected = combined.split(" ");
+        // scoresArray[i] = new Score(localStorage.key(i), localStorage.getItem(localStorage.key(i)));
+        scoresArray[i] = new Score(disconnected[0], disconnected[1]);
+
         scoresArray[i].time = scoresArray[i].time;
     } 
 
@@ -32,6 +40,8 @@ function sortHighScores() {
     }
 
     return showHighScores();
+} else showHighScores();
+
 }
 
 // Clear High-Scores 
@@ -42,7 +52,7 @@ function clearScores() {
 
 // Add scores as <li> elements in HTML
 function showHighScores() {
-    clearScores(); // If this isn't executed TOP10 becomes TOP(entryNumber*10)
+    //clearScores(); // If this isn't executed TOP10 becomes TOP(entryNumber*10)
 
     for (let j = 0; j < 10; j++) {
         let node = document.createElement("li");
