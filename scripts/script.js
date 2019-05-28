@@ -1,5 +1,6 @@
 // ~BEGIN **PAGE LOADED INSTRUCTIONS**
 var playerName = "Adolf";
+var emojisSet = "EASY";
 
 // Display welcome msg
 document.querySelector('#welcomeMsg').innerHTML = "Welcome, " + playerName + "!";
@@ -76,6 +77,8 @@ function startGame() {
   GM.style.display = "none";
   GC.style.display = "block";
   CD.style.display = "block";
+
+  document.querySelector('#currentSet').innerHTML = "Change emojis set (current set: " + emojisSet + ")";
 }
 
 function goBack() {
@@ -83,4 +86,10 @@ function goBack() {
   let GM = document.querySelector('#gameMenu');
   GM.style.display = "flex";
   GC.style.display = "none";
+}
+
+function changeEmojisSet(){
+  let eSet = document.querySelector('#selectEmojisSet')
+  emojisSet = eSet.options[eSet.selectedIndex].text;
+  document.querySelector('#currentSet').innerHTML = "Change emojis set (current set: " + emojisSet + ")";
 }

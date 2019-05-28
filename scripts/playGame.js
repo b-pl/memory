@@ -39,7 +39,6 @@ const headerInfo = {
 };
 
 function playGame() {   // this shouldn't be named playGame
-
     headerInfo.difficulty = window.event.target.id;
 
     function setSize(){
@@ -60,7 +59,6 @@ function playGame() {   // this shouldn't be named playGame
             points = 36;
             diff='hard';
         }
-
         return size;
     }
 
@@ -69,9 +67,15 @@ function playGame() {   // this shouldn't be named playGame
     setHeader();
     let size = setSize();
     
-    // Create emojis array
-    emojis = "😀 😃 😄 😁 😆 😅 🤣 😂 🙂 🙃 😉 😊 😇 😍 🤩 🙄 🖤 💯 💢 💥 💫 💦 💨 🕳 💣 💬 ⚽ ⚾ 🥎 🏀 🏐 🔌 💻 🖥 🖨 ⌨ 🖱 🖲 🐇 🐿 🦔" // string
-    smallSet = emojis.split(" "); // array
+    // Create emojis sets
+    easy = "🦔 🥑 🕸 🍳 🍄 🌍 📵 ✂ 💻 🛒 🚽 🌜 🌟 🌈 ⚓ 🕷 🎅 💣 💕 😈 💀 💪 👮 🦖 🎵 🎧 🗑 💎 💄 🔋 🔨 🔫 🛁 ⛔ 🏁" // string
+    medium = "👫 👭 🐏 🐑 😺 😸 😃 😄 🕕 🕛 💒 ⛪ 🛫 🛬 🌜 🌟 🌈 ⚓ 🕷 🎅 💣 💕 😈 💀 💪 👮 🦖 🎵 🎧 🗑 💎 💄 🔋 🔨 🔫 🛁";
+    hard = "🕕 🕛 🕝 🕞 🕡 🤟 🤘 ❤ 🖤 😺 😸 😃 😄 😁 😀 🧒 👦 💏 💑 👫 👭 🐏 🐑 💒 ⛪ 🛫 🛬 🏠 🏑 🏒 👓 🕶 📁 📂 🔒 🔓";
+
+    // emojiSet is variable from 'script.js' that defines emoji set
+    if(emojisSet === 'EASY') choosenSet = easy.split(" ");  //create array by spliting adequate set
+    else if(emojisSet === "MEDIUM") choosenSet = medium.split(" ");
+    else choosenSet = hard.split(" ");
 
     // Hide difficulty buttons and show GRID
     const CD = document.querySelector('#chooseDifficulty');
@@ -80,7 +84,7 @@ function playGame() {   // this shouldn't be named playGame
     GB.style.display = 'flex';
 
     createGrid(setSize());
-    shuffle(smallSet);
+    shuffle(choosenSet);
 
     var numbersArray = [];
     for (let i = 0; i < size; i++) { 
@@ -89,7 +93,7 @@ function playGame() {   // this shouldn't be named playGame
     shuffle(numbersArray);
 
     for (let i = 0; i < size; i+=2){
-        let textnode = document.createTextNode(smallSet[i]); // put pickedEmoji to textNode
+        let textnode = document.createTextNode(choosenSet[i]); // put pickedEmoji to textNode
         let temp = numbersArray[i];
         let temp2 = numbersArray[i+1];
         document.getElementsByClassName("cardP")[temp].innerHTML = textnode.nodeValue;

@@ -176,7 +176,7 @@ body {
 }
 
 #hard {
-    margin-bottom: 2em;
+    margin-bottom: 0.5em;
 }
 
 .flip {
@@ -284,4 +284,8 @@ body {
 .winnerButton:hover {
 width: 27%;
 background-color: #a2cc74;
+}
+
+#emojisSet, #selectEmojisSet {
+    margin: auto;
 }
