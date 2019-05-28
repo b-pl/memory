@@ -84,6 +84,16 @@
                         <button class="gameMenuButton diffButton" id="easy" onclick="playGame()">EASY</button>
                         <br><button class="gameMenuButton diffButton" id="medium" onclick="playGame()">MEDIUM</button>
                         <br><button class="gameMenuButton diffButton" id="hard" onclick="playGame()">HARD</button>
+                        <form id="emojisSet">
+                            <p id="currentSet"></p>
+                            <select id="selectEmojisSet">
+                                <option>EASY</option>
+                                <option>MEDIUM</option>
+                                <option>HARD</option>
+                            </select>
+                            <input type="button" onclick="changeEmojisSet()" value="Change">
+                        </form>
+                        <br><span id="emojisSetSelected"></span>
                     </div>
                 </div>
 
